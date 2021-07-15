@@ -35,6 +35,15 @@ grafana + prometheus + node-expoter
 
 ```
 
+### 快速部署本项目
+```code   
+    #  1. 安装 docker 环境，请自行百度搜索。
+    #  2. 安装 docker-compose，参考：
+    #  3.下载/克隆 本项目到你服务器的某个位置，在 docker-compose.yml 同目录执行  docker-compose  up -d 即可
+```
+ 启动效果图
+ ![效果图](https://www.ginskeleton.com/images/gpn.png)
+
 ###  可能遇到的问题  
 ```code  
 
