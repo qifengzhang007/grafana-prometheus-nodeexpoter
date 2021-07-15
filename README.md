@@ -1,12 +1,12 @@
 # grafana-prometheus-node-expoter
 
-#### 前言  
+#### 1.前言  
 > 服务器性能监控集成环境  
 grafana + prometheus + node-expoter
 
 
 
-####  三个核心角色介绍  
+####  2.三个核心角色介绍  
  - 1.node_exporter:   
    在 9100 端口启动一个服务，自身抓取linux系统底层的运行状态数据，例如：cpu状态、内存占用、磁盘占用、网络传输状态等，等待其他上层服务软件抓取
  
@@ -16,7 +16,7 @@ grafana + prometheus + node-expoter
  - 3.grafana :  
    提供可登陆的数据展示系统，从 prometheus 提供的接口获取数据，可视化呈现服务器性能指标。  
    
-###  三个核心配置注意事项    
+###  3.三个核心角色配置   
 ```code  
 
 #1.node_exporter 
@@ -35,7 +35,7 @@ grafana + prometheus + node-expoter
 
 ```
 
-### 快速部署本项目
+### 4.快速部署本项目
 ```code   
     #  1. 安装 docker 环境，请自行百度搜索。
     #  2. 安装 docker-compose，参考：
@@ -44,7 +44,7 @@ grafana + prometheus + node-expoter
  启动效果图
  ![效果图](https://www.ginskeleton.com/images/gpn.png)
 
-###  可能遇到的问题  
+###  5.可能遇到的问题  
 ```code  
 
     1.采集不到数据，grafana界面无数据  
@@ -55,5 +55,5 @@ grafana + prometheus + node-expoter
 ```
 
 
-### 最终效果图  
+### 6.最终效果图  
 ![效果图](https://www.ginskeleton.com/images/linux2.png)  
