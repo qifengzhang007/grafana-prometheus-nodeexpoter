@@ -56,4 +56,5 @@ grafana + prometheus + node-expoter
 
 
 ### 6.最终效果图  
+![效果图](https://www.ginskeleton.com/images/linux1.png)  
 ![效果图](https://www.ginskeleton.com/images/linux2.png)  
