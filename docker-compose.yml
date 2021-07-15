@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+
+  # 数据展示界面，需要简答的配置，即可登陆查看服务器各项性能指标
+  grafana:
+    image: "grafana/grafana:${grafana_version}"
+    container_name: "grafana-${grafana_version}"
+    volumes:
+      - /home/data/project2021/grafana:/var/lib/grafana
+    ports:
+      - 3000:3000
+    restart: "always"
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      - gpn-net
+
+  # 采集 node-expoter 节点提供的数据，存储在自带的 TSDB 数据库
+  prometheus:
+    image: "prom/prometheus:${prometheus_version}"
+    container_name: "prometheus-${prometheus_version}"
+    volumes:
+      - ./prometheus_config/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    restart: "always"
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      - gpn-net
+
+  # 采集服务器各个运行指标数据，存储通过 9100 端口供其他采集程序抓取
+  node-expoter:
+    image: "prom/node-exporter:${nodeexporter_version}"
+    container_name: "nodeexporter-${nodeexporter_version}"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    ports:
+      - 9100:9100
+    restart: "always"
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      - gpn-net
+networks:
+  gpn-net:
+    driver: bridge
