@@ -42,19 +42,15 @@ grafana + prometheus + node-expoter
     # 2.安装 docker-compose 环境,如果没有 docker-compose 扩展，参考 http://github.com/docker/compose/
     # 3.下载/克隆 本项目到你服务器的某个位置，在 docker-compose.yml 同目录执行  docker-compose  up -d 即可
 ```
- 启动效果图
+ 启动效果图  
  ![效果图](https://www.ginskeleton.com/images/gpn.png)
 
 ###  5.可能遇到的问题  
-```code  
+ - 1.`grafana` 采集不到数据,导致界面无任何指标展示.  
+ - 2.您可以参考原来的文档，grafana 配置步骤(https://gitee.com/daitougege/GinSkeleton/blob/master/docs/deploy_linux.md), 其中配置采集数据时，`prometheus` 源需要进行修改，请参考如下图：  
 
-    1.采集不到数据，grafana 界面无数据  
-     如果是云服务器，内网地址采集不到数据，请换成外网ip尝试.  
-     如果只有一台高配服务器提供服务，那么请参考 ./prometheus_config/prometheus.yml 中参数说明配置即可
-     
-     2.其他问题  
-    请在本项目仓库直接提 issue  
-```
+![grafana数据采集配置部分需要修改](https://www.ginskeleton.com/images/grafana-prometheus.png)  
+
 
 
 ### 6.最终效果图  
