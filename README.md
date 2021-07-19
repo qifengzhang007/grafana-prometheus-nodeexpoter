@@ -8,13 +8,14 @@ grafana + prometheus + node-expoter
 
 ####  2.三个核心角色介绍  
  - 1.node_exporter:   
-   在 9100 端口启动一个服务，自身抓取linux系统底层的运行状态数据，例如：cpu状态、内存占用、磁盘占用、网络传输状态等，等待其他上层服务软件抓取
+   在 9100 端口启动一个服务，自身抓取linux系统底层的运行状态数据，例如：cpu状态、内存占用、磁盘占用、网络传输状态等，等待其他上层(例如：prometheus)服务软件抓取.  
  
 - 2.prometheus :   
-  从 部署在不同服务器的多个 node_exporter 提供的服务端口 9100 主动获取数据，存储在自带的数据库 TSDB.  
+  从部署在不同服务器的多个 node_exporter 提供的服务端口 9100 主动获取数据，存储在自带的数据库 TSDB.  
   
  - 3.grafana :  
    提供可登陆的数据展示系统，从 prometheus 提供的接口获取数据，可视化呈现服务器性能指标。  
+   ![效果图](https://www.ginskeleton.com/images/gpn_1.png)
    
 ###  3.三个核心角色配置   
 ```code  
@@ -47,8 +48,9 @@ grafana + prometheus + node-expoter
 ###  5.可能遇到的问题  
 ```code  
 
-    1.采集不到数据，grafana界面无数据  
+    1.采集不到数据，grafana 界面无数据  
      如果是云服务器，内网地址采集不到数据，请换成外网ip尝试.  
+     如果只有一台高配服务器提供服务，那么请参考 ./prometheus_config/prometheus.yml 中参数说明配置即可
      
      2.其他问题  
     请在本项目仓库直接提 issue  

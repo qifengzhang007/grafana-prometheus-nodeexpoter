@@ -20,11 +20,14 @@ scrape_configs:
   # Here it's Prometheus itself.
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['172.17.0.3:9090']
+      # prometheus 本身可被采集的服务端口
+      - targets: [':9090']
         labels:
           instance: "prometheus"
-  - job_name: "阿里云服务器"   # 必须唯一，设置一下服务器总名称，请自行设置
+  # 必须唯一，设置一下服务器名称, 每一个 job_name 都是一个 node-expoter 节点
+  - job_name: "阿里云服务器"
     static_configs:
+      # 这里是 prometheus 需要采集的目标节点（node-expoter）服务器ip:端口，目标节点往往分布在不同的服务器, 如果是本机您也可以直接写 node-expoter:9100
       - targets: ["172.17.0.3:9100"]
         labels:
           instance: "GinSkeleton-web1"  #标记一下目标服务器的作用，请自行设置
