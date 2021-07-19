@@ -47,7 +47,7 @@ grafana + prometheus + node-expoter
 
 ###  5.可能遇到的问题  
  - 1.`grafana` 采集不到数据,导致界面无任何指标展示.  
- - 2.您可以参考原来的文档，grafana 配置步骤(https://gitee.com/daitougege/GinSkeleton/blob/master/docs/deploy_linux.md), 其中配置采集数据时，`prometheus` 源需要进行修改，请参考如下图：  
+ - 2.您可以参考原来的文档，grafana 配置部分相关的步骤(https://gitee.com/daitougege/GinSkeleton/blob/master/docs/deploy_linux.md), 其中配置采集数据时，`prometheus` 源需要进行修改，请参考如下图：  
 
 ![grafana数据采集配置部分需要修改](https://www.ginskeleton.com/images/grafana-prometheus.png)  
 
